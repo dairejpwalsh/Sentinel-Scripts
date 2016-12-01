@@ -396,6 +396,7 @@ def main( argv=None ):
             sys.exit( 1 )
 
         else:
+            print("Arg " + arg + "Added")
             names.append(arg)
 
         i = i + 1

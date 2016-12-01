@@ -41,11 +41,11 @@ def generate_geotiffs(inputProductPath, outputPath):
 
 	for granule in subDirectorys:
 		unprocessedBandPath = outputPath + productName + ".SAFE/GRANULE/" + granule + "/" + "IMG_DATA/"
-		result.append(generate_all_bands(unprocessedBandPath, granule, outputPathSubdirectory))
+		results.append(generate_all_bands(unprocessedBandPath, granule, outputPathSubdirectory))
 	
 	#gdal_merge.py -n 0 -a_nodata 0 -of GTiff -o /home/daire/Desktop/merged.tif /home/daire/Desktop/aa.tif /home/daire/Desktop/rgbTiff-16Bit-AllBands.tif
 	merged = outputPathSubdirectory + "/merged.tif"
-	params = ['', '-n', 0, "-a_nodata", 0, "-of", "GTiff", "-o", merged]
+	params = ['',"-of", "GTiff", "-o", merged]
 
 	for granule in results:
 		print(granule)
@@ -53,7 +53,7 @@ def generate_geotiffs(inputProductPath, outputPath):
 
 	print params	
 
-	#gdal_merge.main(params)'''
+	gdal_merge.main(params)
 
 
 def generate_all_bands(unprocessedBandPath, granule, outputPathSubdirectory):
