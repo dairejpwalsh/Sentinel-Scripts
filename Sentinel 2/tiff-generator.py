@@ -41,19 +41,19 @@ def generate_geotiffs(inputProductPath, outputPath):
 
 	for granule in subDirectorys:
 		unprocessedBandPath = outputPath + productName + ".SAFE/GRANULE/" + granule + "/" + "IMG_DATA/"
-		results.append(generate_all_bands(unprocessedBandPath, granule, outputPathSubdirectory))
+		result.append(generate_all_bands(unprocessedBandPath, granule, outputPathSubdirectory))
 	
 	#gdal_merge.py -n 0 -a_nodata 0 -of GTiff -o /home/daire/Desktop/merged.tif /home/daire/Desktop/aa.tif /home/daire/Desktop/rgbTiff-16Bit-AllBands.tif
-	merged = outputPath + "merged.tif"
+	merged = outputPathSubdirectory + "/merged.tif"
 	params = ['', '-n', 0, "-a_nodata", 0, "-of", "GTiff", "-o", merged]
 
 	for granule in results:
 		print(granule)
 		params.append(granule)
 
-	#print params	
+	print params	
 
-	#gdal_merge.main(params)
+	#gdal_merge.main(params)'''
 
 
 def generate_all_bands(unprocessedBandPath, granule, outputPathSubdirectory):
@@ -63,14 +63,10 @@ def generate_all_bands(unprocessedBandPath, granule, outputPathSubdirectory):
 	outputPathSubdirectory = outputPathSubdirectory 
 	if not os.path.exists(outputPathSubdirectory+ "/IMAGE_DATA"):
 		os.makedirs(outputPathSubdirectory+ "/IMAGE_DATA")
-
-	outputPathSubdirectoryGranule = outputPathSubdirectory + "/IMAGE_DATA/" + granuleBandTemplate + "DATA"
-	if not os.path.exists(outputPathSubdirectoryGranule):
-		os.makedirs(outputPathSubdirectoryGranule)
 	
-	outPutTiff = '/16Bit-AllBands.tif'
+	outPutTiff = '/'+granule[:-6]+'16Bit-AllBands.tif'
 
-	outPutFullPath = outputPathSubdirectoryGranule + outPutTiff
+	outPutFullPath = outputPathSubdirectory + "/IMAGE_DATA/" + outPutTiff
 	
 	inputPath = unprocessedBandPath + granuleBandTemplate
 
@@ -92,8 +88,7 @@ def generate_all_bands(unprocessedBandPath, granule, outputPathSubdirectory):
 
 	gdal_merge.main(params)
 	
-	return outPutFullPath
-
+	return(outPutFullPath)
 
 
 
