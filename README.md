@@ -13,7 +13,7 @@ To generated merged tif run tiff-generator.py and input path to zipped product w
 
 ```sh
 
-$ python tiff-generator.py
+$ python3 tiff-generator.py
 $ Input Path? Inputs/S2A_OPER_PRD_MSIL1C_PDMC_20160527T131839_R080_V20150728T113618_20150728T113618.zip
 
 ```
