@@ -7,7 +7,7 @@ Source for Sentinel-Scripts/Sentinel 2/Scripts/gdal_merge.py
 S2 examples
 ------------
 
-Here are a few examples for Sentinel-2.
+Here are a few examples for Sentinel-2 Level 2a products.
 
 To generated merged tif run tiff-generator.py and input path to zipped product when prompted.
 
