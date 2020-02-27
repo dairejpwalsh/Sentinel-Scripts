@@ -77,7 +77,7 @@ def generate_all_bands(unprocessedBandPath, granule, outputPathSubdirectory):
 
     #print("\n\t" + inputPath)
 
-    bands = {"band_AOT" :  inputPath + "R20m/" + granuleBandTemplate +  "AOT_10m.jp2",
+    bands = {"band_AOT" :  inputPath + "R10m/" + granuleBandTemplate +  "AOT_10m.jp2",
     "band_02" :  inputPath + "R10m/" + granuleBandTemplate +  "B02_10m.jp2",
     "band_03" :  inputPath + "R10m/" + granuleBandTemplate +  "B03_10m.jp2",
     "band_04" :  inputPath + "R10m/" + granuleBandTemplate +  "B04_10m.jp2",
@@ -87,7 +87,7 @@ def generate_all_bands(unprocessedBandPath, granule, outputPathSubdirectory):
     "band_08" :  inputPath + "R10m/" + granuleBandTemplate +  "B08_10m.jp2",
     "band_8A" :  inputPath + "R20m/" + granuleBandTemplate +  "B8A_20m.jp2",
     "band_09" :  inputPath + "R60m/" + granuleBandTemplate +  "B09_60m.jp2",
-    "band_WVP" :  inputPath + "R60m/" + granuleBandTemplate +  "WVP_10m.jp2",
+    "band_WVP" :  inputPath + "R10m/" + granuleBandTemplate +  "WVP_10m.jp2",
     "band_11" :  inputPath + "R20m/" + granuleBandTemplate +  "B11_20m.jp2",
     "band_12" :  inputPath + "R20m/" + granuleBandTemplate +  "B12_20m.jp2"}
 
